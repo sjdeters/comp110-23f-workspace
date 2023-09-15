@@ -1,4 +1,4 @@
-"""EX02 - One Shot Wordle - Another step towards Wordle"""
+"""EX02 - One Shot Wordle - Another step towards Wordle."""
 
 __author__ = "730660578"
 
@@ -18,7 +18,7 @@ results: str = ("")
 
 # Make sure the length of the guessed_word is the correct number of letters. 
 while len(guessed_word) != len(secret_word): 
-    guessed_word: str = input(f"That was not {len(secret_word)} letters! Try again: ")
+    guessed_word = input(f"That was not {len(secret_word)} letters! Try again: ")
 
 # Look at each letter in the secret word. 
 while idx < len(secret_word):
@@ -32,14 +32,14 @@ while idx < len(secret_word):
         # Keeps track of which letter we are looking at in the secrret word. 
         alt_idx: int = 0
         # Look at every other letter in the secret word. 
-        while (chr_test != True) and (alt_idx < len(secret_word)):
+        while (chr_test is not True) and (alt_idx < len(secret_word)):
             # Check to see if the letter is present somewhere else. 
             if secret_word[alt_idx] == guessed_word[idx]:
                 chr_test = True
             else:
                 alt_idx += 1
         # The letter in the guessed word can be found somewhere else in the secret word. 
-        if chr_test == True:
+        if chr_test is True:
             results += YELLOW_BOX
         # The letter in the guessed word is not in the secret word. 
         else:
