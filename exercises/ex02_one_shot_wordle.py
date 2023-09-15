@@ -9,7 +9,7 @@ GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 
 # Prompt user to input a guessed_word for the secret word.
-guessed_word: str = input(f"What is your {len(secret_word)}-letter guessed_word? ")
+guessed_word: str = input(f"What is your {len(secret_word)}-letter guess? ")
 
 # Variable to track which letter we are looking at. 
 idx: int = 0

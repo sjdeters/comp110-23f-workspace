@@ -1,6 +1,6 @@
 """Demonstrates while loops by finding low value in string"""
 
-cards: str = "5235"
+cards: str = "5234"
 card_idx: int = 0
 low_card: int = int(cards[0])
 
