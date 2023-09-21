@@ -1,13 +1,14 @@
 """EX03 - Wordle - The final step towards Wordle."""
 
-__author__ = 730660578
+__author__ = "730660578"
 
 # Variables for the box colors that will be our output. 
 WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 
-def contains_char(searched_thru_word: str, searched_for_char: str) -> str:
+
+def contains_char(searched_thru_word: str, searched_for_char: str) -> bool:
     """Determines if a given character appears at any index in the secret word."""
     # Ensure the length of the character is 1. 
     assert len(searched_for_char) == 1
@@ -18,15 +19,16 @@ def contains_char(searched_thru_word: str, searched_for_char: str) -> str:
         # Check to see if the given index of the word matches the character we are checking.
         if searched_thru_word[idx] == searched_for_char:
             char_check = True
-        else: # If the letter is not found at the idx of the word.
+        else:  # If the letter is not found at the idx of the word.
             idx += 1
     # The character has been found somewhere in the secret word. 
-    if char_check == True:
+    if char_check is True:
         return True
     # The character is not found anywhere in the secret word. 
     else: 
         return False
     
+
 def emojified(guess: str, secret: str) -> str:
     """Codifies the guessed word to show which characters appear elsewhere."""
     assert len(guess) == len(secret) 
@@ -46,14 +48,16 @@ def emojified(guess: str, secret: str) -> str:
         idx2 += 1
     return results
 
-def input_guess(word_length: int) -> int: 
+
+def input_guess(word_length: int) -> str: 
     """Ensures that the guessed word is of equal lenght with the secret word."""
     # Prompt user for a guess.
     input_word: str = input(f"Enter a {word_length} character word: ")
     # Continue to prompt for a guess until the correct number of characters is entered. 
     while len(input_word) != word_length:
-        input_word: str = input(f"That wasn't {word_length} chars! Try again: ")
+        input_word = input(f"That wasn't {word_length} chars! Try again: ")
     return input_word
+
 
 def main() -> None:
     """The entrypoint of the program and main game loop."""
@@ -61,7 +65,7 @@ def main() -> None:
     todays_secret_word: str = "codes"
     win_check: bool = False
     # Run the game until all turns have been used or the correct word is guessed. 
-    while (turn_idx < 7) and  (win_check is not True):
+    while (turn_idx < 7) and (win_check is not True):
         # Print the current turn number. 
         print(f"=== Turn {turn_idx}/6 ===")
         # Prompt user for a guess of correct length and store it as a variable. 
@@ -81,6 +85,7 @@ def main() -> None:
     # Tell the user to come back tomorrow. 
     else:
         print("X/6 - Sorry, try again tomorrow!")
+
 
 # Allow for the program to be run as a module. 
 if __name__ == "__main__":
