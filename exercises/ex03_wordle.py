@@ -62,7 +62,7 @@ def input_guess(word_length: int) -> str:
 def main() -> None:
     """The entrypoint of the program and main game loop."""
     turn_idx: int = 1
-    todays_secret_word: str = "codes"
+    todays_secret_word: str = "pineapple"
     win_check: bool = False
     # Run the game until all turns have been used or the correct word is guessed. 
     while (turn_idx < 7) and (win_check is not True):
