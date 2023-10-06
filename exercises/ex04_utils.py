@@ -8,7 +8,7 @@ def all(input_list: list[int], input_int: int) -> bool:
     if len(input_list) == 0:
         return False
     idx: int = 0
-    while idx < len(input_list) - 1:
+    while idx < len(input_list):
         if input_list[idx] != input_int:
             return False
         else: 
@@ -19,7 +19,7 @@ def all(input_list: list[int], input_int: int) -> bool:
 def max(input: list[int]) -> int:
     """Returns the largest value in the list."""
     if len(input) == 0:
-        raise ValueError("max() arg is an empty list")
+        raise ValueError("max() arg is an empty List")
     idx: int = 0
     largest_int: int = input[0]
     while idx < len(input):
@@ -32,17 +32,20 @@ def max(input: list[int]) -> int:
 def is_equal(int_list1: list[int], int_list2: list[int]) -> bool:
     """Determines if both lists are the same."""
     if len(int_list1) == 0 and len(int_list2) == 0:
-        raise ValueError("is_equal() both lists are empty")
+        return True
     if len(int_list1) == 0 or len(int_list2) == 0:
-        raise ValueError("is_equal() one list is empty")
+        return False
+    sequence_test: bool = True
     idx: int = 0
-    while idx < len(int_list1):
+    while idx < len(int_list1) and idx < len(int_list2):
         if int_list1[idx] != int_list2[idx]:
-            if len(int_list1) != len(int_list2):
-                raise ValueError("is_equal() lists have different lengths and elements")
+            sequence_test = False
+        idx += 1 
+    if sequence_test is True:
+        if len(int_list1) != len(int_list2):
             return False
-        else:
-            idx += 1
-    if len(int_list1) != len(int_list2):
-        raise ValueError("is_equal() lists have same elements but are different lengths")
-    return True
+        return True
+    else:    
+        if len(int_list1) != len(int_list2):
+            return False
+        return False
