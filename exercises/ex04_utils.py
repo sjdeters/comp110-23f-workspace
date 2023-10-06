@@ -31,14 +31,18 @@ def max(input: list[int]) -> int:
 
 def is_equal(int_list1: list[int], int_list2: list[int]) -> bool:
     """Determines if both lists are the same."""
+    if len(int_list1) == 0 and len(int_list2) == 0:
+        raise ValueError("is_equal() both lists are empty")
     if len(int_list1) == 0 or len(int_list2) == 0:
-        raise ValueError("is_equal() arg list one or two is empty")
-    if len(int_list1) != len(int_list2):
-        raise ValueError("is_equal() arg lists are not equal length")
+        raise ValueError("is_equal() one list is empty")
     idx: int = 0
     while idx < len(int_list1):
         if int_list1[idx] != int_list2[idx]:
+            if len(int_list1) != len(int_list2):
+                raise ValueError("is_equal() lists have different lengths and elements")
             return False
         else:
             idx += 1
+    if len(int_list1) != len(int_list2):
+        raise ValueError("is_equal() lists have same elements but are different lengths")
     return True
