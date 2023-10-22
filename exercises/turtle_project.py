@@ -151,7 +151,7 @@ def draw_center(center: Turtle, x: float, y: float) -> None:
     while i < 40:
         center_dots(center, randint(-50, 50), randint(-50, 50))
         i += 1
-
+    
 
 def center_dots(dots: Turtle, x: float, y: float) -> None:
     """Creates a dot."""
