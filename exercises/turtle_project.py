@@ -1,4 +1,10 @@
-"""To-Do: describe your scene program."""
+"""For my scene, I wanted to design a pretty sunflower with some clouds in the distance. 
+I am attempting to go above and beyond in my drawing in a few ways. First of all, I used the "circle"
+function from the Turtle documentation page, which we did not use in the tutorial. Secondly, I used 
+multiple loops in my code to try and make an interesting pattern. This was essential for making the
+flower (or yellow part) of the sunflower. Finally, I wanted to use randomness in my scene and did so by
+randomizing the location of the clouds in the background and also by randomizing the dots on the center
+of the flower. I also broke my functions down into smaller functions to make the process simpler."""
 
 __author__ = "730660578"
 
@@ -75,6 +81,7 @@ def draw_sky(sky: Turtle, x: float, y: float) -> None:
 def draw_cloud(cloud: Turtle, x: float, y: float):
     """Draws a cloud."""
     i: int = 0
+    # Bottom row of cloud. 
     while i < 3:
         cloud.penup()
         cloud.goto(x + 25 * i, y)
@@ -83,6 +90,7 @@ def draw_cloud(cloud: Turtle, x: float, y: float):
     i = 0
     x -= 15
     y += 15
+    # Middle row of cloud. 
     while i < 4:
         cloud.penup()
         cloud.goto(x + 25 * i, y)
@@ -91,6 +99,7 @@ def draw_cloud(cloud: Turtle, x: float, y: float):
     i = 0
     x += 15
     y += 15
+    # Top row of cloud. 
     while i < 3:
         cloud.penup()
         cloud.goto(x + 25 * i, y)
@@ -151,7 +160,7 @@ def draw_center(center: Turtle, x: float, y: float) -> None:
     while i < 40:
         center_dots(center, randint(-50, 50), randint(-50, 50))
         i += 1
-        
+
 
 def center_dots(dots: Turtle, x: float, y: float) -> None:
     """Creates a dot."""
