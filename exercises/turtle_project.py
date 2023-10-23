@@ -1,4 +1,6 @@
-"""EX05 - Turtle Scene."""
+"""To-Do: describe your scene program."""
+
+__author__ = "730660578"
 
 from turtle import Turtle, colormode, done
 from random import randint
@@ -166,7 +168,7 @@ def draw_center(center: Turtle, x: float, y: float) -> None:
     while i < 40:
         center_dots(center, randint(-50, 50), randint(-50, 50))
         i += 1
-
+    
 
 def center_dots(dots: Turtle, x: float, y: float) -> None:
     """Creates a dot."""
