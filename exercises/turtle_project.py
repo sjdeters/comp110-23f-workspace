@@ -1,20 +1,26 @@
+"""EX05 - Turtle Scene."""
+
+from turtle import Turtle, colormode, done
+from random import randint
+
 """For my scene, I wanted to design a pretty sunflower with some clouds in the distance. 
 I am attempting to go above and beyond in my drawing in a few ways. First of all, I used the "circle"
 function from the Turtle documentation page, which we did not use in the tutorial. Secondly, I used 
 multiple loops in my code to try and make an interesting pattern. This was essential for making the
 flower (or yellow part) of the sunflower. Finally, I wanted to use randomness in my scene and did so by
 randomizing the location of the clouds in the background and also by randomizing the dots on the center
-of the flower. I also broke my functions down into smaller functions to make the process simpler."""
+of the flower. I also broke my functions down into smaller functions to make the process simpler. Also,
+I kept getting a linting error for my import modules saying they needed to be at the top of the file
+and putting it above this description was the only way to get rid of it. 
+"""
 
 __author__ = "730660578"
 
-from turtle import Turtle, colormode, done
-
-from random import randint
+colormode(255)
 
 
 def main() -> None:
-    "The entrypoint of my scene."
+    """The entrypoint of my scene."""
     # To-do: Declare your Turtle variable(s) here. 
     ertle: Turtle = Turtle()
     ertle.hideturtle()
@@ -78,7 +84,7 @@ def draw_sky(sky: Turtle, x: float, y: float) -> None:
     sky.end_fill()
 
 
-def draw_cloud(cloud: Turtle, x: float, y: float):
+def draw_cloud(cloud: Turtle, x: float, y: float) -> None:
     """Draws a cloud."""
     i: int = 0
     # Bottom row of cloud. 
