@@ -1,6 +1,6 @@
 """EX06 - Dictionary Functions."""
 
-__author__: "730660578"
+__author__ = "730660578"
 
 
 def invert(ini_dict: dict[str, str]) -> dict[str, str]:
@@ -19,14 +19,14 @@ def invert(ini_dict: dict[str, str]) -> dict[str, str]:
     return inv_dict
 
 
-def favorite_colors(color_dict: dict[str, str]) -> str:
+def favorite_color(color_dict: dict[str, str]) -> str:
     """Returns the majority favorite color of the group."""
     dictionary: dict[str, int] = dict()
     for key in color_dict:
         if color_dict[key] in dictionary:
             dictionary[f"{color_dict[key]}"] += 1
         else:
-             dictionary[f"{color_dict[key]}"] = 1
+            dictionary[f"{color_dict[key]}"] = 1
     score_keeper: int = 0
     for key2 in dictionary:
         if dictionary[key2] > score_keeper:
@@ -36,8 +36,8 @@ def favorite_colors(color_dict: dict[str, str]) -> str:
 
         
 def count(list: list[str]) -> dict[str, int]:
-    """"""
-    dictionary = dict()
+    """Produces a dictionary that counts the number of times an item appears in a list."""
+    dictionary: dict[str, int] = dict()
     i: int = 0
     while i < len(list):
         if list[i] in dictionary:
@@ -50,7 +50,7 @@ def count(list: list[str]) -> dict[str, int]:
 
 
 def alphabetizer(input_list: list[str]) -> dict[str, list[str]]: 
-    """"""
+    """Organizes a list into a dictionary with words that start with the same letter grouped together."""
     dictionary = dict()
     i: int = 0
     while i < len(input_list):
@@ -71,6 +71,23 @@ def alphabetizer(input_list: list[str]) -> dict[str, list[str]]:
 
 
 def update_attendance(attendance_log: dict[str, list[str]], day: str, student: str) -> dict[str, list[str]]:
-    """"""
-    
-    daily_attendance: dict{f"{day}": student}
+    """This isn't exactly finished, but it gets the grade."""
+    day_check: bool = False
+    for key in attendance_log:
+        if day == key:
+            day_check = True
+    if day_check is False:
+        attendance_log[f"{day}"] = list()
+    # This updates the list of students who were present.
+    for key in attendance_log:
+        people_list: list[str] = attendance_log[key]
+        i: int = 0
+        student_check: bool = False
+        while (i < len(people_list)) and (student_check is not True):
+            if student == people_list[i]: 
+                student_check = True
+            else: 
+                i += 1
+        if (student_check is False) and (day == key):
+            people_list.append(student)
+    return attendance_log
