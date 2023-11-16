@@ -1,10 +1,3 @@
-"""To-Do: describe your scene program."""
-
-__author__ = "730660578"
-
-from turtle import Turtle, colormode, done
-from random import randint
-
 """For my scene, I wanted to design a pretty sunflower with some clouds in the distance. 
 I am attempting to go above and beyond in my drawing in a few ways. First of all, I used the "circle"
 function from the Turtle documentation page, which we did not use in the tutorial. Secondly, I used 
